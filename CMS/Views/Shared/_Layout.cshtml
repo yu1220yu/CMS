@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CMS</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/fontawesome/css/all.css" />
+    <link rel="stylesheet" href="~/lib/limonte-sweetalert2/sweetalert2.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    @await RenderSectionAsync("topJS", required: false)
+    @await RenderSectionAsync("topCSS", required: false)
+</head>
+
+<body>
+    <header>
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light border-bottom box-shadow mb-3 fixed-top text-break">
+            <div class="container">
+                <!-- logo -->
+                <a asp-area="" asp-controller="Home" asp-action="Index" style="user-select:none" class="navbar-brand d-flex opacity-75">
+                    <img src="https://i.imgur.com/KOZ0Y8U.jpeg"
+                         alt="logo" class="rounded-circle" style="width:2rem;height:2rem">
+                    <span class="text-warning fw-semibold ps-2 fs-4">CMS</span>
+                </a>
+
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between ps-2">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-muted" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="text-warning opacity-25 my-auto">|</li>
+                        <li class="nav-item">
+                            <a class="nav-link text-muted" asp-area="" asp-controller="Products" asp-action="Index">ProductList</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <partial name="_LoginPartial" />
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="mt-5 pt-5 pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer text-end text-light">
+        <small class="container">
+            © 2022 Copyright -
+            <a asp-area="" asp-controller="Home" asp-action="Privacy" class="text-decoration-none text-light">yu@stepñ.com</a>
+        </small>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/limonte-sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    @await RenderSectionAsync("endJS", required: false)
+    @await RenderSectionAsync("endCSS", required: false)
+</body>
+</html>

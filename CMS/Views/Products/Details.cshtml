@@ -1,0 +1,56 @@
+﻿@model CMS.Models.DetailViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+<hr />
+
+<div>
+    <div class="row">
+        @*image*@
+        <section class="col-xl-4 mx-auto p-5 d-none d-xl-flex">
+            <div class="bg-warning d-inline-block w-100 h-100 rounded-circle p-5 bg-opacity-25 ms-5">
+                <div class="bg-warning d-inline-block w-100 h-100 rounded-circle p-5 bg-opacity-50">
+                    <div class="bg-warning d-inline-block w-100 h-100 rounded-circle p-5 bg-opacity-75">
+                    </div>
+                </div>
+            </div>
+            <img src="@Html.DisplayFor(model => model.Product.SneakerImg)" style="width:25rem" class="position-absolute mt-5">
+        </section>
+
+        <div class="col-10 d-xl-none text-center">
+            <img src="@Html.DisplayFor(Model => Model.Product.SneakerImg)" style="width:20rem" />
+        </div>
+
+        <div class="col-10 col-xl-7 p-5 ms-5">
+            <div class="row p-2">
+                <p class="alert-light m-0 fw-bold">@Html.DisplayNameFor(model => model.Product.SneakerNum)</p>
+                <div class="col">
+                    <h3># @Html.DisplayFor(model => model.Product.SneakerNum)</h3>
+                </div>
+            </div>
+
+            <div class="row p-2">
+                <p class="alert-light m-0 fw-bold">@Html.DisplayNameFor(model => model.Product.Category):</p>
+                <div class="col">
+                    <h4>@Html.DisplayFor(model => model.Product.Category.Name)</h4>
+                </div>
+            </div>
+
+            <div class="row p-2">
+                <p class="alert-light m-0 fw-bold">@Html.DisplayNameFor(model => model.Product.Price):</p>
+                <div class="col">
+                    <h4>NT$ @Html.DisplayFor(model => model.Product.Price)</h4>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Product.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

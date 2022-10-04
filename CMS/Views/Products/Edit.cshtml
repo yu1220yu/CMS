@@ -1,0 +1,62 @@
+﻿@model CMS.Models.Product
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group py-3">
+                <img src="@Model.SneakerImg" style="width:5rem" />
+            </div>
+
+            <div class="form-group">
+                <div class="col">
+                    <h5># @Html.DisplayFor(model => model.SneakerNum)</h5>
+                </div>
+                <input asp-for="SneakerNum" class="form-control d-none" />
+            </div>
+
+            <div class="form-group">
+                <input asp-for="SneakerImg" class="form-control d-none" />
+            </div>
+
+            <div class="form-group">
+                <div class="col">
+                    <h5>@Html.DisplayFor(model => model.Category.Name)</h5>
+                </div>
+                <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-control d-none"></select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Sale" /> @Html.DisplayNameFor(model => model.Sale)
+                </label>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-warning text-white" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
